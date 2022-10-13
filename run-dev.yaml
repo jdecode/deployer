@@ -6,4 +6,4 @@ spec:
   template:
     spec:
       containers:
-      - image: jdecode/deployer:1
+      - image: deployer-image
