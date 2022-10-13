@@ -1,0 +1,29 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+ name: deployer-app
+description: main application pipeline
+serialPipeline:
+ stages:
+ - targetId: run-deployer-dev
+   profiles: [dev]
+ - targetId: run-deployer-prod
+   profiles: [prod]
+---
+
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+ name: run-deployer-dev
+description: Cloud Run development service
+run:
+ location: projects/jdecode/locations/asia-southeast1
+---
+
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+ name: run-deployer-prod
+description: Cloud Run production service
+run:
+  location: projects/jdecode/locations/asia-southeast1
