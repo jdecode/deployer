@@ -1,7 +1,7 @@
 apiVersion: skaffold/v3alpha1
 kind: Config
 metadata:
-  name: deployer
+  name: skaffol-config-deployer-app
 profiles:
 - name: dev
   manifests:

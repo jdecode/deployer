@@ -1,20 +1,20 @@
 apiVersion: deploy.cloud.google.com/v1
 kind: DeliveryPipeline
 metadata:
- name: deployer-app
+ name: delivery-pipeline-deployer-app
 description: main application pipeline
 serialPipeline:
  stages:
- - targetId: run-deployer-dev
+ - targetId: target-id-deployer-app-dev
    profiles: [dev]
- - targetId: run-deployer-prod
+ - targetId: target-id-deployer-app-prod
    profiles: [prod]
 ---
 
 apiVersion: deploy.cloud.google.com/v1
 kind: Target
 metadata:
- name: run-deployer-dev
+  name: target-id-deployer-app-dev
 description: Cloud Run development service
 run:
  location: projects/jdecode/locations/asia-southeast1
@@ -23,7 +23,7 @@ run:
 apiVersion: deploy.cloud.google.com/v1
 kind: Target
 metadata:
- name: run-deployer-prod
+ name: target-id-deployer-app-prod
 description: Cloud Run production service
 run:
   location: projects/jdecode/locations/asia-southeast1
